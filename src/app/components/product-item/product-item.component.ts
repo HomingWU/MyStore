@@ -10,18 +10,16 @@ import { Product } from '../../models/Product';
 })
 export class ProductItemComponent {
 
-  @Input() product: Product;
+  @Input() product: Product = {
+    id: 0,
+    name: '',
+    price: 0,
+    description: '',
+    url: '',
+    amount: 0
+  };
 
-  constructor() {
-    this.product = {
-      id: 0,
-      name: '',
-      price: 0,
-      description: '',
-      url: '',
-      amount: 0
-    }
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 

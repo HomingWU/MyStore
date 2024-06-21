@@ -1,1 +1,13 @@
-<p>product-item works!</p>
+<div class="product-container">
+    <div class="product-image">
+        <a routerLink="products/{{ product.id }}">
+            <img [src]="product.url" alt="product.name">
+        </a>
+        <p>{{product.name}}</p>
+        <p>${{product.price}}</p>
+    </div>
+    <select class="select-input" value = 1 #selectedNumber>
+        <option *ngFor="let i of numbers" [value]="i">{{i}}</option>
+    </select>
+    <button class="add-to-cart" (click)="addToCart(selectedNumber.value)">Add to Cart</button>
+</div>

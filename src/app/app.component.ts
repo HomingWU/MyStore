@@ -10,9 +10,17 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CartComponent, ConfirmationComponent, ProductListComponent, ProductItemDetailComponent, HeaderComponent, ProductItemComponent],
+  imports: [
+    RouterOutlet,
+    CartComponent,
+    ConfirmationComponent,
+    ProductListComponent,
+    ProductItemDetailComponent,
+    HeaderComponent,
+    ProductItemComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'MyStore';

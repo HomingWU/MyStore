@@ -1,32 +1,65 @@
 <div class="cart-container">
-    <div *ngIf="cartItems.length !== 0" class="cart-panel" >
-        <div *ngFor="let cartItem of cartItems">
-        <div class="cart-item">
-            <img src={{cartItem.url}} alt={{cartItem.name}}>
+  <div *ngIf="cartItems.length !== 0" class="cart-panel">
+    <div *ngFor="let cartItem of cartItems">
+      <div class="cart-item">
+        <img src="{{ cartItem.url }}" alt="{{ cartItem.name }}" />
         <div class="cart-item-details">
-            <h2>{{cartItem.name}}</h2>
-            <p>${{cartItem.price}}</p>
-            <input type="number" #number (change)="updateCartItem(cartItem,number.value)" value={{cartItem.amount}}>
+          <h2>{{ cartItem.name }}</h2>
+          <p>${{ cartItem.price }}</p>
+          <input
+            type="number"
+            #number
+            (change)="updateCartItem(cartItem, number.value)"
+            value="{{ cartItem.amount }}"
+          />
         </div>
-        </div>
-        </div>
-        <h3>Total: ${{total}}</h3>
+      </div>
     </div>
-        <h1 *ngIf="cartItems.length ===0" class="empty-cart-message" >Your cart is empty</h1>
+    <h3>Total: ${{ total }}</h3>
+  </div>
+  <h1 *ngIf="cartItems.length === 0" class="empty-cart-message">
+    Your cart is empty
+  </h1>
 
-    
-    
-    <div *ngIf="cartItems.length !== 0" class="cart-panel">
-        <form #form="ngForm" (ngSubmit)="submitForm()">
-            <p class="text-margin">Full name</p>
-            <input class="form-margin" type="text" name="name" required minlength="3" [(ngModel)]="name" placeholder="(minimum 3 characters)">
-            <p class="text-margin">Address</p>
-            <input class="form-margin" type="text" name="address" required minlength="6" [(ngModel)]="address" placeholder="(minimum 6 characters)">
-            <p class="text-margin">Credit card number</p>
-            <input class="form-margin" type="text" name="creditCard" required pattern="[0-9]{16}" [(ngModel)]="creditCard" placeholder="(16-digit number)">
-            <br>
-            <input type="submit" [disabled]="form.invalid" value="Submit" class="btn btn-primary">
-        </form>
-    </div>
-    
+  <div *ngIf="cartItems.length !== 0" class="cart-panel">
+    <form #form="ngForm" (ngSubmit)="submitForm()">
+      <p class="text-margin">Full name</p>
+      <input
+        class="form-margin"
+        type="text"
+        name="name"
+        required
+        minlength="3"
+        [(ngModel)]="name"
+        placeholder="(minimum 3 characters)"
+      />
+      <p class="text-margin">Address</p>
+      <input
+        class="form-margin"
+        type="text"
+        name="address"
+        required
+        minlength="6"
+        [(ngModel)]="address"
+        placeholder="(minimum 6 characters)"
+      />
+      <p class="text-margin">Credit card number</p>
+      <input
+        class="form-margin"
+        type="text"
+        name="creditCard"
+        required
+        pattern="[0-9]{16}"
+        [(ngModel)]="creditCard"
+        placeholder="(16-digit number)"
+      />
+      <br />
+      <input
+        type="submit"
+        [disabled]="form.invalid"
+        value="Submit"
+        class="btn btn-primary"
+      />
+    </form>
+  </div>
 </div>

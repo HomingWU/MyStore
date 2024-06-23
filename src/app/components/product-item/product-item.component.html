@@ -1,13 +1,18 @@
 <div class="product-container">
-    <div >
-        <a routerLink="products/{{ product.id }}">
-            <img class="product-image" [src]="product.url" alt="product.name">
-        </a>
-    </div>
-    <p>{{product.name}}</p>
-    <p>${{product.price}}</p>
-    <select class="select-input" value = 1 #selectedNumber>
-        <option *ngFor="let i of numbers" [value]="i">{{i}}</option>
-    </select>
-    <button class="btn btn-primary" (click)="addToCart(product, selectedNumber.value)">Add to Cart</button>
+  <div>
+    <a routerLink="products/{{ product.id }}">
+      <img class="product-image" [src]="product.url" alt="product.name" />
+    </a>
+  </div>
+  <p>{{ product.name }}</p>
+  <p>${{ product.price }}</p>
+  <select class="select-input" value="1" #selectedNumber>
+    <option *ngFor="let i of numbers" [value]="i">{{ i }}</option>
+  </select>
+  <button
+    class="btn btn-primary"
+    (click)="addToCart(product, selectedNumber.value)"
+  >
+    Add to Cart
+  </button>
 </div>

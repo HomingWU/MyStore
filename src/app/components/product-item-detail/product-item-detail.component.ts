@@ -11,13 +11,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   standalone: true,
   imports: [CommonModule, RouterModule, NgbModule],
   templateUrl: './product-item-detail.component.html',
-  styleUrl: './product-item-detail.component.css'
+  styleUrl: './product-item-detail.component.css',
 })
 export class ProductItemDetailComponent {
+  numbers: number[] = Array.from({ length: 10 }, (_, i) => i + 1);
 
-  numbers: number[] = Array.from({length: 10}, (_, i) => i + 1);
-
-  product: Product= {
+  product: Product = {
     id: 0,
     name: '',
     price: 0,
@@ -25,9 +24,13 @@ export class ProductItemDetailComponent {
     url: '',
   };
 
-  constructor(private route : ActivatedRoute, private cartService : CartService, private productService : ProductService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private productService: ProductService,
+  ) {}
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.getProduct(id).subscribe((product) => {
       if (product) {
@@ -35,7 +38,7 @@ export class ProductItemDetailComponent {
       }
     });
   }
-  addToCart(product : Product, number : string) {
+  addToCart(product: Product, number: string) {
     const amount = parseInt(number, 10);
     this.cartService.addToCart(product, amount);
     alert('Added to cart');

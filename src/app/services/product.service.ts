@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   private dataUrl: string = 'data.json';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.dataUrl);
@@ -18,7 +17,7 @@ export class ProductService {
 
   getProduct(id: number): Observable<Product | undefined> {
     return this.getProducts().pipe(
-      map((products) => products.find((product) => product.id === id))
+      map((products) => products.find((product) => product.id === id)),
     );
   }
 }

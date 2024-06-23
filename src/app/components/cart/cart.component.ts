@@ -12,28 +12,30 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
-
   name: string = '';
   address: string = '';
   creditCard: string = '';
-  cartItems : CartItem[] = [];
-  total : number = 0;
+  cartItems: CartItem[] = [];
+  total: number = 0;
 
-  constructor(private cartService : CartService, private router : Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
     this.total = this.cartService.getTotal();
   }
 
-  updateCartItem(product : CartItem, number : string) {
+  updateCartItem(product: CartItem, number: string) {
     const amount = parseInt(number, 10);
     this.cartService.updateCartItem(product, amount);
     this.cartItems = this.cartService.getCartItems();
     this.total = this.cartService.getTotal();
   }
 
-  submitForm(){
+  submitForm() {
     this.cartService.setName(this.name);
     this.cartService.setAddress(this.address);
     this.cartService.setCreditCard(this.creditCard);

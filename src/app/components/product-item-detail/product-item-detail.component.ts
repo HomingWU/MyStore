@@ -4,17 +4,18 @@ import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-item-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgbModule],
   templateUrl: './product-item-detail.component.html',
   styleUrl: './product-item-detail.component.css'
 })
 export class ProductItemDetailComponent {
 
-  numbers: number[] = Array.from({ length: 11 }, (_, i) => i);
+  numbers: number[] = Array.from({length: 10}, (_, i) => i + 1);
 
   product: Product= {
     id: 0,
@@ -38,7 +39,5 @@ export class ProductItemDetailComponent {
     const amount = parseInt(number, 10);
     this.cartService.addToCart(product, amount);
     alert('Added to cart');
-    window.location.reload();
   }
-
 }

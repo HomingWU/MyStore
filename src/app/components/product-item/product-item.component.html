@@ -9,5 +9,5 @@
     <select class="select-input" value = 1 #selectedNumber>
         <option *ngFor="let i of numbers" [value]="i">{{i}}</option>
     </select>
-    <button class="add-to-cart" (click)="addToCart(product, selectedNumber.value)">Add to Cart</button>
+    <button class="btn btn-primary" (click)="addToCart(product, selectedNumber.value)">Add to Cart</button>
 </div>

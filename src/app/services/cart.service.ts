@@ -11,6 +11,10 @@ export interface CartItem extends Product {
 export class CartService {
   private cartItems : Map<number, CartItem> = new Map<number, CartItem>();
 
+  private name: string = '';
+  private address: string = '';
+  private creditCard: string = '';
+
   constructor() { }
 
   getCartItem(id : number) : CartItem | undefined {
@@ -26,6 +30,8 @@ export class CartService {
       const cartItem = { ...product, amount };
       this.cartItems.set(product.id, cartItem);
     }
+    console.log("added to cart");
+    console.log(this.cartItems);
   }
 
   getCartItems() : CartItem[] {
@@ -41,5 +47,33 @@ export class CartService {
         this.cartItems.delete(product.id);
       }
     }
+  }
+  clearCart() : void {
+    this.cartItems.clear();
+    this.setName('');
+    this.setAddress('');
+    this.setCreditCard('');
+  }
+  getName() : string {
+    return this.name;
+  }
+  setName(name : string) : void {
+    this.name = name;
+  }
+  getAddress() : string {
+    return this.address;
+  }
+  setAddress(address : string) : void {
+    this.address = address;
+  }
+  getCreditCard() : string {
+    return this.creditCard;
+  }
+  setCreditCard(creditCard : string) : void {
+    this.creditCard = creditCard;
+  }
+  getTotal() : number {
+    const total = Array.from(this.cartItems.values()).reduce((acc, item) => acc + item.price * item.amount, 0);
+    return parseFloat(total.toFixed(2));
   }
 }

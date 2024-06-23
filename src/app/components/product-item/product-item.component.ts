@@ -13,7 +13,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class ProductItemComponent {
 
-  numbers: number[] = Array.from({ length: 11 }, (_, i) => i);
+  numbers: number[] = Array.from({length: 10}, (_, i) => i + 1);
 
   @Input() product: Product = {
     id: 0,
@@ -31,6 +31,5 @@ export class ProductItemComponent {
     const amount = parseInt(number, 10);
     this.cartService.addToCart(product, amount);
     alert('Added to cart');
-    window.location.reload();
   }
 }

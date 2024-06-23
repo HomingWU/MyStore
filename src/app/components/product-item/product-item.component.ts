@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from '../../models/Product';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -19,16 +20,17 @@ export class ProductItemComponent {
     name: '',
     price: 0,
     description: '',
-    url: '',
-    amount: 0
+    url: ''
   };
 
-  constructor() {}
+  constructor(private cartService : CartService) {}
 
   ngOnInit(): void {}
-  addToCart(number : string) {
-    this.product.amount += parseInt(number, 10);
-    alert('Added to cart');
-  }
 
+  addToCart(product : Product, number : string) {
+    const amount = parseInt(number, 10);
+    this.cartService.addToCart(product, amount);
+    alert('Added to cart');
+    window.location.reload();
+  }
 }

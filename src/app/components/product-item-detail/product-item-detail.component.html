@@ -1,1 +1,17 @@
-<p>product-item-detail works!</p>
+<div class="detail-container">
+    <div>
+        <img class="img"[src]="product.url" alt="product.name" />
+    </div>
+    <div class="detail-item">
+        <h2>{{ product.name }}</h2>
+        <p>${{ product.price}}</p>
+        <p>{{ product.description }}</p>
+        <select class="select-input" value = 1 #selectedNumber>
+            <option *ngFor="let i of numbers" [value]="i">{{i}}</option>
+        </select>
+        <div>
+            <button class="add-to-cart" (click)="addToCart(product, selectedNumber.value)">Add to Cart</button>
+        </div>
+        
+    </div>
+</div>

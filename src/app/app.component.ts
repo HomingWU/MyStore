@@ -5,11 +5,12 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CartComponent, ConfirmationComponent, ProductListComponent, ProductItemDetailComponent, HeaderComponent],
+  imports: [RouterOutlet, CartComponent, ConfirmationComponent, ProductListComponent, ProductItemDetailComponent, HeaderComponent, ProductItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

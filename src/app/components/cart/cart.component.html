@@ -9,8 +9,8 @@
           <input
             type="number"
             #number
-            (change)="updateCartItem(cartItem, number.value)"
-            value="{{ cartItem.amount }}"
+            [(ngModel)]="cartItem.amount"
+            (ngModelChange)="updateCartItem(cartItem, cartItem.amount)"
           />
         </div>
       </div>

@@ -28,8 +28,7 @@ export class CartComponent {
     this.total = this.cartService.getTotal();
   }
 
-  updateCartItem(product: CartItem, number: string) {
-    const amount = parseInt(number, 10);
+  updateCartItem(product: CartItem, amount: number) {
     this.cartService.updateCartItem(product, amount);
     this.cartItems = this.cartService.getCartItems();
     this.total = this.cartService.getTotal();

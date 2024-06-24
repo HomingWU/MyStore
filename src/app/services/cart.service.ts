@@ -45,6 +45,7 @@ export class CartService {
       this.cartItems.set(product.id, currentCartItem);
       if (currentCartItem.amount <= 0) {
         this.cartItems.delete(product.id);
+        alert('Item removed from cart');
       }
     }
   }

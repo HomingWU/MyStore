@@ -74,10 +74,7 @@ export class CartService {
     this.creditCard = creditCard;
   }
   getTotal(): number {
-    const total = Array.from(this.cartItems.values()).reduce(
-      (acc, item) => acc + item.price * item.amount,
-      0,
-    );
+    const total = Array.from(this.cartItems.values()).reduce((acc, item) => acc + item.price * item.amount, 0);
     return parseFloat(total.toFixed(2));
   }
 }

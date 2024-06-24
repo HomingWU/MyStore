@@ -21,4 +21,8 @@ export class ProductListComponent {
       this.products = products;
     });
   }
+
+  hideProduct(product: Product) {
+    this.products = this.products.filter((p) => p.id !== product.id);
+  }
 }

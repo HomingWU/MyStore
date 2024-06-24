@@ -16,8 +16,6 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<Product | undefined> {
-    return this.getProducts().pipe(
-      map((products) => products.find((product) => product.id === id)),
-    );
+    return this.getProducts().pipe(map((products) => products.find((product) => product.id === id)));
   }
 }

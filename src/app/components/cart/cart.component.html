@@ -17,9 +17,7 @@
     </div>
     <h3>Total: ${{ total }}</h3>
   </div>
-  <h1 *ngIf="cartItems.length === 0" class="empty-cart-message">
-    Your cart is empty
-  </h1>
+  <h1 *ngIf="cartItems.length === 0" class="empty-cart-message">Your cart is empty</h1>
 
   <div *ngIf="cartItems.length !== 0" class="cart-panel">
     <form #form="ngForm" (ngSubmit)="submitForm()">
@@ -54,12 +52,7 @@
         placeholder="(16-digit number)"
       />
       <br />
-      <input
-        type="submit"
-        [disabled]="form.invalid"
-        value="Submit"
-        class="btn btn-primary"
-      />
+      <input type="submit" [disabled]="form.invalid" value="Submit" class="btn btn-primary" />
     </form>
   </div>
 </div>

@@ -4,6 +4,7 @@
       class="product-index"
       *ngFor="let product of products"
       [product]="product"
+      (hideProduct)="hideProduct($event)"
     ></app-product-item>
   </div>
 </div>

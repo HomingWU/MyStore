@@ -19,3 +19,14 @@
   width: 108px;
   margin-bottom: 8px;
 }
+
+.link-button {
+  display: inline;
+  padding: 1em;
+  border: 0;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  color: darkgray;
+}

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/Product';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -21,6 +21,7 @@ export class ProductItemComponent {
     description: '',
     url: '',
   };
+  @Output() hideProduct: EventEmitter<Product> = new EventEmitter();
 
   constructor(private cartService: CartService) {}
 
@@ -30,5 +31,10 @@ export class ProductItemComponent {
     const amount = parseInt(number, 10);
     this.cartService.addToCart(product, amount);
     alert('Added to cart');
+  }
+
+  hide(product: Product): void {
+    alert(`Product ${product.name} will not be shown anymore.`);
+    this.hideProduct.emit(product);
   }
 }
